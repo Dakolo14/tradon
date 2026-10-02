@@ -1,0 +1,289 @@
+@import "tailwindcss";
+
+:root {
+  --font-sans: var(--font-poppins), "Poppins", system-ui, -apple-system, sans-serif;
+  --color-page-bg: #FFFFFF;
+  --color-text: #0E3E2B;
+  --color-lime: #A3FF00;
+  --color-lime-hover: #94EA00;
+  --color-wireframe: #737373;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    background-color: var(--color-page-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip; /* clip allows position: sticky to work properly */
+    width: 100%;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    color: var(--color-text);
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+  }
+
+  p {
+    font-weight: 400;
+    color: var(--color-text);
+  }
+}
+
+/* TRADON Theme Overrides */
+[data-theme="dark"] {
+  --color-page-bg: #0A1711;
+  --color-text: #F1F5F9;
+  background-color: #0A1711;
+  color: #F1F5F9;
+}
+
+[data-theme="dark"] body {
+  background-color: #0A1711;
+  color: #F1F5F9;
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+  color: #F1F5F9;
+}
+
+[data-theme="dark"] p {
+  color: #CBD5E1;
+}
+
+/* Light surface guard: prevent white-on-white when inside an explicitly light modal/card */
+[data-theme="dark"] .bg-white h1,
+[data-theme="dark"] .bg-white h2,
+[data-theme="dark"] .bg-white h3,
+[data-theme="dark"] .bg-white h4,
+[data-theme="dark"] .bg-white p,
+[data-theme="dark"] [data-surface="light"] h1,
+[data-theme="dark"] [data-surface="light"] h2,
+[data-theme="dark"] [data-surface="light"] h3,
+[data-theme="dark"] [data-surface="light"] h4,
+[data-theme="dark"] [data-surface="light"] p {
+  color: #0F172A !important;
+}
+
+[data-theme="glare-guard"] {
+  --color-page-bg: #F0F2F5;
+  --color-text: #000000;
+  background-color: #F0F2F5 !important;
+  color: #000000 !important;
+}
+
+[data-theme="glare-guard"] body {
+  background-color: #F0F2F5 !important;
+  color: #000000 !important;
+}
+
+[data-theme="glare-guard"] h1,
+[data-theme="glare-guard"] h2,
+[data-theme="glare-guard"] h3,
+[data-theme="glare-guard"] h4,
+[data-theme="glare-guard"] h5,
+[data-theme="glare-guard"] h6 {
+  color: #000000 !important;
+}
+
+[data-theme="slate"] {
+  --color-page-bg: #F1F5F9;
+  --color-text: #0F172A;
+  background-color: #F1F5F9 !important;
+  color: #0F172A !important;
+}
+
+[data-theme="slate"] body {
+  background-color: #F1F5F9 !important;
+  color: #0F172A !important;
+}
+
+[data-theme="slate"] h1,
+[data-theme="slate"] h2,
+[data-theme="slate"] h3,
+[data-theme="slate"] h4,
+[data-theme="slate"] h5,
+[data-theme="slate"] h6 {
+  color: #0F172A !important;
+}
+
+/* TRADON Font Options */
+[data-font="poppins"],
+[data-font="poppins"] * {
+  font-family: var(--font-poppins), "Poppins", system-ui, sans-serif !important;
+}
+
+[data-font="inter"],
+[data-font="inter"] * {
+  font-family: var(--font-inter), "Inter", system-ui, sans-serif !important;
+}
+
+[data-font="jakarta"],
+[data-font="jakarta"] * {
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", system-ui, sans-serif !important;
+}
+
+[data-font="outfit"],
+[data-font="outfit"] * {
+  font-family: var(--font-outfit), "Outfit", system-ui, sans-serif !important;
+}
+
+/* Navbar Button: Poppins Medium 18px, 24px inline, 10px block */
+.btn-tradon-nav {
+  font-family: var(--font-sans) !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  line-height: 27px !important;
+  padding: 10px 24px !important;
+  padding-block: 10px !important;
+  padding-inline: 24px !important;
+  background-color: #A3FF00 !important;
+  color: #0E3E2B !important;
+  border-radius: 9999px !important;
+  border: none !important;
+  outline: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  white-space: nowrap !important;
+  transition: background-color 0.2s ease, transform 0.15s ease !important;
+}
+
+.btn-tradon-nav:hover {
+  background-color: #94EA00 !important;
+}
+
+.btn-tradon-nav:active {
+  transform: scale(0.98) !important;
+}
+
+/* Hero Button: Poppins Medium 20px, 40px inline, 16px block */
+.btn-hero-cta {
+  font-family: var(--font-sans) !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  line-height: 1.3 !important;
+  padding: 16px 40px !important;
+  padding-block: 16px !important;
+  padding-inline: 40px !important;
+  background-color: #A3FF00 !important;
+  color: #0E3E2B !important;
+  border-radius: 9999px !important;
+  border: none !important;
+  outline: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  white-space: nowrap !important;
+  transition: background-color 0.2s ease, transform 0.15s ease !important;
+}
+
+.btn-hero-cta:hover {
+  background-color: #94EA00 !important;
+}
+
+.btn-hero-cta:active {
+  transform: scale(0.98) !important;
+}
+
+/* CTA Section Banner Button: Poppins Medium 18px, 36px inline, 16px block */
+.btn-cta-banner {
+  font-family: var(--font-sans) !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  padding: 16px 36px !important;
+  padding-block: 16px !important;
+  padding-inline: 36px !important;
+  background-color: #B2FF00 !important;
+  color: #0E3E2B !important;
+  border-radius: 9999px !important;
+  border: none !important;
+  outline: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  white-space: nowrap !important;
+  transition: background-color 0.2s ease, transform 0.15s ease !important;
+}
+
+.btn-cta-banner:hover {
+  background-color: #9FE600 !important;
+}
+
+.btn-cta-banner:active {
+  transform: scale(0.98) !important;
+}
+
+/* Standardized Responsive Containers with Guaranteed 70px Desktop Padding */
+.navbar-container,
+.page-container {
+  width: 100% !important;
+  max-width: 1440px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+@media (min-width: 640px) {
+  .navbar-container,
+  .page-container {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar-container,
+  .page-container {
+    padding-left: 70px !important;
+    padding-right: 70px !important;
+  }
+}
+
+.dist-left-column {
+  box-sizing: border-box !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+@media (min-width: 640px) {
+  .dist-left-column {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dist-left-column {
+    padding-left: 70px !important;
+    padding-right: 40px !important;
+  }
+}
+
+
